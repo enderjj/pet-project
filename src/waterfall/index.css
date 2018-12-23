@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#myBiv {
+  position: relative;
+  /* float: left; */
+}
+
+.imgBox {
+  padding: 15px 0 0 15px;
+  float: left;
+}
+
+.img {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: #ccc;
+}
+
+.img img {
+  width: 200px;
+  height: auto;
+}
