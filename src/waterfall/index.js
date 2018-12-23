@@ -1,5 +1,47 @@
 window.onload = function () {
   waterfall('myDiv', 'imgBox');
+
+  var jsonObject = {
+    data: [
+      {
+        src: '0.jpg'
+      },
+      {
+        src: '1.jpg'
+      },
+      {
+        src: '2.jpg'
+      },
+      {
+        src: '3.jpg'
+      },
+      {
+        src: '4.jpg'
+      }
+    ]
+  };
+
+  // 页面滚动时，动态渲染页面元素
+  window.onscroll = function () {
+    if (checkScroll) {
+      var divElement = document.getElementById('myDiv');
+
+      // 新增元素并渲染
+      for (var i = 0; i < jsonObject.data.length; i++) {
+        var boxElement = document.createElement('div');
+        boxElement.className = 'imgBox';
+        divElement.appendChild(boxElement);
+        var imgBoxElement = document.createElement('div');
+        imgBoxElement.className = 'img';
+        boxElement.appendChild(imgBoxElement);
+        var imgElement = document.createElement('img');
+        imgElement.src = 'images/' + jsonObject.data[i].src;
+        imgBoxElement.appendChild(imgElement);
+      }
+
+      waterfall('myDiv', 'imgBox');
+    }
+  }
 }
 
 function waterfall(objParent, objBox) {
@@ -49,4 +91,15 @@ function getIndexMin(array, minValue) {
       return i;
     }
   }
+}
+
+// 判断页面是否滚动指定距离
+function checkScroll() {
+  var objParent = document.getElementById('myDiv');
+  var objBoxs = getByClass(objParent, 'box');
+  // 最后一个元素距离页面顶部的距离+元素的一般距离
+  var lastBoxScroll = objBoxs[objBoxs.length - 1].top + Math.floor(objBoxs[objBoxs.length - 1].offsetHeight / 2);
+  var scrollHeight = document.body.scrollTop || document.documentElement.scrollTop;
+  var windowHeight = document.body.clientTop || document.documentElement.clientTop;
+  return (lastBoxScroll <= scrollHeight + windowHeight) ? true : false;
 }
