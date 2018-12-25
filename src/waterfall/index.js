@@ -107,7 +107,9 @@ function checkScroll() {
   var objParent = document.getElementById('myDiv');
   var objBoxs = getByClass(objParent, 'imgBox');
   // 最后一个元素距离页面顶部的距离+元素的一般距离
-  var lastBoxScroll = objBoxs[objBoxs.length - 1].offsetTop + Math.floor(objBoxs[objBoxs.length - 1].offsetHeight / 2);
+  var lastBoxOffsetTop = objBoxs[objBoxs.length - 1].offsetTop;
+  var lastBoxHalfHeight = Math.floor(objBoxs[objBoxs.length - 1].offsetHeight / 2);
+  var lastBoxScroll = lastBoxOffsetTop + lastBoxHalfHeight;
   var scrollHeight = document.body.scrollTop || document.documentElement.scrollTop;
   var windowHeight = document.body.clientHeight || document.documentElement.clientHeight;
   return (lastBoxScroll <= scrollHeight + windowHeight) ? true : false;

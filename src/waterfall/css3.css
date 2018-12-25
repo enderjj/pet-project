@@ -1,0 +1,27 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+#myDiv {
+  -webkit-column-width: 237px;
+  -moz-column-width: 237px;
+}
+
+.imgBox {
+  padding: 15px 0 0 15px;
+}
+
+.img {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+  width: 200px;
+}
+
+.img img {
+  width: 200px;
+  height: auto;
+  display: block;
+}
