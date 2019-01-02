@@ -6,7 +6,9 @@ window.onload = function () {
   var prev = document.getElementById('prev');  //获取左箭头
   var next = document.getElementById('next');  //获取右箭头
 
-  imgList.style.left = 0;
+  imgList.style.left = '-4800px';   //设置图片列表的left特性
+
+  var index = 0;   //保存当前亮显的span标签索引值
 
   //第一种实现方式
   // next.onclick = function () {
@@ -31,18 +33,62 @@ window.onload = function () {
   // next.addEventListener('click', clickArrow, false);
   // prev.addEventListener('click', clickArrow, false);
 
+  //设置轮播点亮显
+  function showButton() {
+
+    //将现在亮显的按钮置灰
+    for (var i = 0; i < spans.length; i++) {
+      var spanClassName = spans[i].className;
+      if (spanClassName === 'on') {
+        spans[i].className = '';
+        break;
+      }
+    }
+
+    //设置新的亮显按钮
+    spans[index].className = 'on';
+  }
+
   //第三种实现方式
   function clickEvent(offset) {
-    imgList.style.left = parseInt(imgList.style.left) + offset + 'px';     //offset为偏移量
+    var newLeft = parseInt(imgList.style.left) + offset;   //求出新的left值
+
+    //如果newLeft值为最后一张图的附图，就更新newLeft值为最后一张图
+    if (newLeft > -800) {
+      newLeft = -4800;
+    }
+
+    //如果newLeft值为第一张图的附图，就更新newLeft值为第一张图
+    if (newLeft < -4800) {
+      newLeft = -800;
+    }
+
+    imgList.style.left = newLeft + 'px';     //更新图片的left值
   }
 
   //添加右箭头点击事件
   next.onclick = function () {
+
+    //设置按钮轮播
+    if (index === 5) {
+      index = 0;
+    } else {
+      index += 1;
+    }
+
+    showButton();   //调用亮显事件
     clickEvent(800);
   }
 
   //添加左箭头点击事件
   prev.onclick = function () {
+    if (index === 0) {
+      index = 5;
+    } else {
+      index -= 1;
+    }
+
+    showButton();  //调用亮显事件
     clickEvent(-800);
   }
 }

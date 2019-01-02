@@ -8,6 +8,7 @@ a {
   height: 600px;
   overflow: hidden;
   border: 2px solid #333;
+  left: 300px;
 }
 
 #page-list {
@@ -65,4 +66,8 @@ a:hover {
 
 .arrow:last-child {
   right: 20px;
+}
+
+#page-button .on {
+  background-color: tomato;
 }
