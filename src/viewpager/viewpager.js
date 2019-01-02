@@ -91,4 +91,19 @@ window.onload = function () {
     showButton();  //调用亮显事件
     clickEvent(-800);
   }
+
+  //按钮点击事件
+  for (var i = 0; i < spans.length; i++) {
+    spans[i].onclick = function () {
+      if (this.className === 'on') {
+        return;
+      }
+      var thisIndex = this.getAttribute('index');
+      var indexOffset = parseInt(800 * (thisIndex - index - 1));
+      clickEvent(indexOffset);
+      index = thisIndex - 1;
+      showButton();
+      // debugger;
+    }
+  }
 }

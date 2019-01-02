@@ -25,6 +25,11 @@ a {
   float: left;
 }
 
+#container:hover .arrow {
+  /* visibility: visible; */
+  display: block;
+}
+
 #page-button {
   position: absolute;
   bottom: 20px;
@@ -42,6 +47,7 @@ a {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .arrow {
@@ -51,9 +57,13 @@ a {
   /* width: 20px;
   height: 20px; */
   border: 1px solid #ccc;
-  background-color: #ccc;
-  font-size: 18px;
+  background-color: darkgrey;
+  font-size: 24px;
   padding: 8px;
+  /* visibility: hidden; */
+  display: none;
+  color: aliceblue;
+  /* opacity: 0.5; */
 }
 
 a:hover {
