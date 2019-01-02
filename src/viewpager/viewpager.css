@@ -7,18 +7,21 @@ a {
   width: 800px;
   height: 600px;
   overflow: hidden;
+  border: 2px solid #333;
 }
 
 #page-list {
   position: absolute;
-  width: 5600px;
+  width: 7200px;
   height: 600px;
   z-index: 1;
+  /* left: -800px; */
 }
 
 #page-list img {
   width: 800px;
   height: 600px;
+  float: left;
 }
 
 #page-button {
@@ -57,9 +60,9 @@ a:hover {
 }
 
 .arrow:first-of-type {
-  left: 10px;
+  left: 20px;
 }
 
 .arrow:last-child {
-  right: 10px;
+  right: 20px;
 }
