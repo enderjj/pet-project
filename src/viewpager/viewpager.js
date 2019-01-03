@@ -97,7 +97,7 @@ window.onload = function () {
 
     showButton();   //调用亮显事件
     if (!onShow) {   // 如果不在动画中，就调用点击事件
-      clickEvent(800);
+      clickEvent(-800);
     }
   }
 
@@ -111,7 +111,7 @@ window.onload = function () {
 
     showButton();  //调用亮显事件
     if (!onShow) {   // 如果不在动画中，就调用点击事件
-      clickEvent(-800);
+      clickEvent(800);
     }
   }
 
