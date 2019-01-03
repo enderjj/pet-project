@@ -12,6 +12,8 @@ window.onload = function () {
 
   var onShow = false; // 用来标志是否在动画中
 
+  var timer; // 定时器，用于自动播放
+
   //第一种实现方式
   // next.onclick = function () {
   //   imgList.style.left = parseInt(imgList.style.left) + 800 + 'px';
@@ -35,10 +37,30 @@ window.onload = function () {
   // next.addEventListener('click', clickArrow, false);
   // prev.addEventListener('click', clickArrow, false);
 
-  //设置轮播点亮显
+  // 自动播放
+  function autoPlay() {
+
+    // 设置每隔3000ms自动播放一次图片
+    timer = setInterval(function () {
+      next.onclick();
+    }, 2000);
+  }
+
+  // 暂停自动播放
+  function stopPlay() {
+    clearInterval(timer);
+  }
+
+  // 设置鼠标放置事件，停止播放
+  container.onmouseover = stopPlay;
+
+  // 设置鼠标移开事件，自动播放
+  container.onmouseout = autoPlay;
+
+  // 设置轮播点亮显
   function showButton() {
 
-    //将现在亮显的按钮置灰
+    // 将现在亮显的按钮置灰
     for (var i = 0; i < spans.length; i++) {
       var spanClassName = spans[i].className;
       if (spanClassName === 'on') {
@@ -47,7 +69,7 @@ window.onload = function () {
       }
     }
 
-    //设置新的亮显按钮
+    // 设置新的亮显按钮
     spans[index].className = 'on';
   }
 
