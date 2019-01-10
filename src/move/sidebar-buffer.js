@@ -20,9 +20,9 @@ function startMove(target) {
     var sidebar = document.getElementById('sidebar');
     var currentOffsetLeft = sidebar.offsetLeft; // 获取当前的位置
 
-    speed = (target - currentOffsetLeft) / 4;
+    speed = (target - currentOffsetLeft) / 4; // 缓冲速度
     speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-    
+
     if (currentOffsetLeft == target) {
       clearInterval(timer);
     } else {
