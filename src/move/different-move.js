@@ -60,7 +60,7 @@ function startChange(obj, target, attribute) {
 
   obj.timer = setInterval(function () {
     if (attribute === 'opacity') {
-      current = parseFloat(getStyle(obj, attribute)) * 100;
+      current = Math.round(parseFloat(getStyle(obj, attribute)) * 100);
     } else {
       current = parseInt(getStyle(obj, attribute));
     }
@@ -74,6 +74,7 @@ function startChange(obj, target, attribute) {
       if (attribute === 'opacity') {
         obj.style.filter = 'opacity(' + (current + speed) + ')';
         obj.style[attribute] = (current + speed) / 100;
+        document.getElementById('opacity').value = obj.style[attribute];
       }
       obj.style[attribute] = current + speed + 'px';
     }
