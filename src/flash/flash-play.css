@@ -1,0 +1,140 @@
+body {
+  background: #666;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+image {
+  border: 0;
+}
+
+.container {
+  width: 400px;
+  height: 430px;
+  margin: 50px auto 0;
+  background-color: #999;
+  font: 12px Arial;
+}
+
+.big-pic {
+  width: 400px;
+  height: 320px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  background: #222;
+  position: relative;
+}
+
+.big-pic li {
+  width: 400px;
+  height: 320px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: url(../waterfall/images/0.jpg) no-repeat center center;
+}
+
+.prevhalf {
+  width: 200px;
+  height: 320px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: red;
+  filter: opacity(0);
+  opacity: 0;
+  z-index: 3000;
+}
+
+.nexthalf {
+  width: 200px;
+  height: 320px;
+  position: absolute;
+  left: 200px;
+  top: 0;
+  background: green;
+  filter: opacity(0);
+  opacity: 0;
+  z-index: 3000;
+}
+
+.big-pic .prev {
+  width: 60px;
+  height: 60px;
+  background: url(./images/prev.jpg) no-repeat;
+  position: absolute;
+  top: 130px;
+  left: 10px;
+  z-index: 3001;
+  display: none;
+  cursor: pointer;
+}
+
+.big-pic .next {
+  width: 60px;
+  height: 60px;
+  background: url(./images/next.jpg) no-repeat 0 -60px;
+  position: absolute;
+  top: 130px;
+  right: 10px;
+  z-index: 3001;
+  display: none;
+  cursor: pointer;
+}
+
+.big-pic .description {
+  position: absolute;
+  left: 10px;
+  top: 302px;
+  z-index: 3000;
+  color: #ccc;
+}
+
+.big-pic .picnum {
+  position: absolute;
+  right: 10px;
+  top: 302px;
+  z-index: 3000;
+  color: #ccc;
+}
+
+.small-pic {
+  width: 380px;
+  height: 94px;
+  position: relative;
+  top: 7px;
+  left: 10px;
+  overflow: hidden;
+}
+
+.small-pic ul {
+  height: 94px;
+  position: absolute;
+  top: 0;
+  height: 0;
+}
+
+.small-pic li {
+  width: 120px;
+  height: 94px;
+  float: left;
+  padding-right: 10px;
+  background: url(../waterfall/images/0.jpg) no-repeat center center;
+  cursor: pointer;
+  filter: opacity(60);
+  opacity: 0.6;
+}
+
+.small-pic img {
+  width: 120px;
+  height: 94px;
+}
