@@ -1,0 +1,136 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+.container {
+  width: 600px;
+  height: 550px;
+  background-color: #999;
+  margin: 50px auto 0;
+  /* font: 12px Arial; */
+}
+
+.big-pic {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  /* left: 400px; */
+  /* top: 50px; */
+  border-bottom: 1px solid #ccc;
+}
+
+.big-pic li {
+  width: 600px;
+  height: 400px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.big-pic img {
+  width: 600px;
+  height: 400px;
+}
+
+.big-pic .prev {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 0;
+  top: 170px;
+  z-index: 3001;
+  background: url(./images/prev.png) no-repeat #ccc;
+  background-size: 60px;
+  filter: opacity(0);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.big-pic .next {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 0;
+  top: 170px;
+  z-index: 3001;
+  background: url(./images/next.png) no-repeat #ccc;
+  background-size: 60px;
+  filter: opacity(0);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.big-pic .prevhalf {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  background-color: red;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  opacity: 0;
+  filter: opacity(0);
+  /* cursor: pointer; */
+}
+
+.big-pic .nexthalf {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  background-color: green;
+  top: 0;
+  left: 300px;
+  z-index: 3000;
+  opacity: 0;
+  filter: opacity(0);
+  /* cursor: pointer; */
+}
+
+.big-pic .description {
+  width: 300px;
+  height: 20px;
+  z-index: 3000;
+  position: absolute;
+  left: 10px;
+  bottom: 2px;
+}
+
+.small-pic {
+  width: 600px;
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  background-color: #999;
+  /* margin: 10px; */
+  /* left: 0; */
+}
+
+.small-pic li {
+  width: 180px;
+  height: 130px;
+  display: inline-block;
+  margin: 10px 0 10px 10px;
+  float: left;
+  opacity: .6;
+  filter: opacity(60);
+  cursor: pointer;
+}
+
+.small-pic img {
+  width: 180px;
+  height: 130px;
+}
+
+

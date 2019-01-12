@@ -11,7 +11,7 @@ li {
   list-style: none;
 }
 
-image {
+img {
   border: 0;
 }
 
@@ -40,7 +40,12 @@ image {
   top: 0;
   left: 0;
   z-index: 0;
-  background: url(../waterfall/images/0.jpg) no-repeat center center;
+  /* background: url(../waterfall/images/0.jpg) no-repeat center center; */
+}
+
+.big-pic img {
+  width: 400px;
+  height: 320px;
 }
 
 .prevhalf {
@@ -128,7 +133,7 @@ image {
   height: 94px;
   float: left;
   padding-right: 10px;
-  background: url(../waterfall/images/0.jpg) no-repeat center center;
+  /* background: url(../waterfall/images/0.jpg) no-repeat center center; */
   cursor: pointer;
   filter: opacity(60);
   opacity: 0.6;
