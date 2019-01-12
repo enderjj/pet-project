@@ -120,7 +120,6 @@ img {
 .small-pic li {
   width: 180px;
   height: 130px;
-  display: inline-block;
   margin: 10px 0 10px 10px;
   float: left;
   opacity: .6;
