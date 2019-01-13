@@ -16,20 +16,17 @@ img {
   height: 550px;
   background-color: #999;
   margin: 50px auto 0;
-  /* font: 12px Arial; */
 }
 
-.big-pic {
+.large-pic {
   width: 600px;
   height: 400px;
   position: relative;
   overflow: hidden;
-  /* left: 400px; */
-  /* top: 50px; */
   border-bottom: 1px solid #ccc;
 }
 
-.big-pic li {
+.large-pic li {
   width: 600px;
   height: 400px;
   position: absolute;
@@ -40,12 +37,16 @@ img {
   overflow: hidden;
 }
 
-.big-pic img {
+.large-pic li:first-of-type{
+  z-index: 1;
+}
+
+.large-pic img {
   width: 600px;
   height: 400px;
 }
 
-.big-pic .prev {
+.large-pic .prev-btn {
   width: 60px;
   height: 60px;
   position: absolute;
@@ -59,7 +60,7 @@ img {
   cursor: pointer;
 }
 
-.big-pic .next {
+.large-pic .next-btn {
   width: 60px;
   height: 60px;
   position: absolute;
@@ -73,7 +74,7 @@ img {
   cursor: pointer;
 }
 
-.big-pic .prevhalf {
+.large-pic .left-backdrop {
   width: 300px;
   height: 400px;
   position: absolute;
@@ -85,7 +86,7 @@ img {
   filter: opacity(0);
 }
 
-.big-pic .nexthalf {
+.large-pic .right-backdrop {
   width: 300px;
   height: 400px;
   position: absolute;
@@ -97,7 +98,7 @@ img {
   filter: opacity(0);
 }
 
-/* .big-pic .description {
+/* .large-pic .description {
   width: 300px;
   height: 20px;
   z-index: 3000;
@@ -106,7 +107,7 @@ img {
   bottom: 2px;
 } */
 
-.small-div {
+.small-wrapper {
   width: 600px;
   height: 150px;
   position: relative;
@@ -131,12 +132,17 @@ img {
   cursor: pointer;
 }
 
+.small-pic:first-child {
+  opacity: 1;
+  filter: opacity(100);
+}
+
 .small-pic img {
   width: 180px;
   height: 130px;
 }
 
-.dot-pic {
+.dot-wrapper {
   width: 600px;
   height: 20px;
   position: absolute;
@@ -145,14 +151,19 @@ img {
   text-align: center;
 }
 
-.dot-pic span {
+.dot-wrapper span {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: url(./images/span.png) repeat-x center center;
+  /* background: url(./images/span.png) repeat-x center center; */
   display: inline-block;
   opacity: 0.6;
   filter: opacity(60);
   cursor: pointer;
+  background-color: black;
+}
+
+.dot-wrapper span:first-child {
+  background-color: #fff;
 }
 
