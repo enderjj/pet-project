@@ -97,14 +97,14 @@ img {
   filter: opacity(0);
 }
 
-.big-pic .description {
+/* .big-pic .description {
   width: 300px;
   height: 20px;
   z-index: 3000;
   position: absolute;
   left: 10px;
   bottom: 2px;
-}
+} */
 
 .small-div {
   width: 600px;
@@ -136,4 +136,23 @@ img {
   height: 130px;
 }
 
+.dot-pic {
+  width: 600px;
+  height: 20px;
+  position: absolute;
+  z-index: 3002;
+  bottom: 5px;
+  text-align: center;
+}
+
+.dot-pic span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: url(./images/span.png) repeat-x center center;
+  display: inline-block;
+  opacity: 0.6;
+  filter: opacity(60);
+  cursor: pointer;
+}
 

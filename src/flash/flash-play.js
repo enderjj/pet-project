@@ -7,6 +7,8 @@ window.onload = function () {
   var bigPics = bigPic.getElementsByTagName('li'); // 大图片
   var smallPic = document.getElementsByClassName('small-pic')[0]; // 小图片 ul
   var smallPics = smallPic.getElementsByTagName('li'); // 小图片
+  var dotPic = document.getElementsByClassName('dot-pic')[0]; // span 圆点
+  var dotPics = dotPic.getElementsByTagName('span');
 
   var currentZIndex = 2; // 当前显示图片的 z-index 值
   var currentIndex = 0; // 当前图片的索引
@@ -37,8 +39,7 @@ window.onload = function () {
 
      // 设置小图片的透明度
     for (var i = 0; i < smallPics.length; i++) {
-      smallPics[i].style.opacity = 0.6;
-      smallPics[i].style.filter = 'opacity(60)';
+      startChange(smallPics[i], 60, 'opacity');
     }
     startChange(smallPics[currentIndex], 100, 'opacity');
 
@@ -50,10 +51,17 @@ window.onload = function () {
     } else {
       startChange(smallPic, -(195 * (currentIndex - 1)), 'left');
     }
+
+    // 设置圆点透明度
+    for(var i = 0; i < dotPics.length; i++) {
+      startChange(dotPics[i], 60, 'opacity');
+    }
+    startChange(dotPics[currentIndex], 100, 'opacity');
   }
 
   prevButton.onclick = function () { // 左箭头点击事件
-    currentIndex--; //图片索引为下一张图片
+    currentIndex--; // 图片索引为下一张图片
+
     if (currentIndex === -1) {
       currentIndex = bigPics.length - 1;
     }
@@ -62,7 +70,7 @@ window.onload = function () {
   }
 
   nextButton.onclick = function () { // 右箭头点击事件
-    currentIndex++; //图片索引为下一张图片
+    currentIndex++; // 图片索引为下一张图片
     if (currentIndex === bigPics.length) { // 如果显示到最后一张图片，则下一张图片为第一张图片
       currentIndex = 0;
     }
@@ -70,7 +78,7 @@ window.onload = function () {
     tab(); // 小图片运动
   }
 
-  //设置小图片事件
+  // 设置小图片事件
   for(var i = 0; i < smallPics.length; i++) {
     smallPics[i].index = i;
     smallPics[i].onmouseover = function() {
@@ -84,6 +92,19 @@ window.onload = function () {
     }
 
     smallPics[i].onclick = function() {
+      if(currentIndex === this.index) {
+        return;
+      }
+      currentIndex = this.index;
+      tab();
+    }
+  }
+
+  // 设置小圆点点击事件
+  for(var i = 0; i < dotPics.length; i++) {
+    dotPics[i].index = i;
+  
+    dotPics[i].onclick = function() {
       if(currentIndex === this.index) {
         return;
       }
