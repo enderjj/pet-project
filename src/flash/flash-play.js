@@ -12,7 +12,8 @@ window.onload = function () {
 
   var currentZIndex = 2; // 当前显示图片的 z-index 值
   var currentIndex = 0; // 当前图片的索引
-  var THUMBNAIL_WIDTH = smallPics[0].offsetWidth + 15;
+  var THUMBNAIL_WIDTH = smallPics[0].offsetWidth + 15; // 小图片宽度
+  var currentOpacityIndex = 0; // 当前量显图片的索引
 
   prevButton.onmouseover = leftBackdrop.onmouseover = function () {
     startChange(prevButton, 60, 'opacity');
@@ -31,18 +32,18 @@ window.onload = function () {
   }
 
   /**
-   * 小图片变化
+   * 图片变化
    */
   function thumbnailMove() {
-    largePics[currentIndex].style.zIndex = currentZIndex++; // 设置图片的 z-index 值
-    largePics[currentIndex].style.height = 0; // 设置图片的初始高度为 0
+    largePics[currentIndex].style.zIndex = currentZIndex++; // 设置大图片的 z-index 值
+    largePics[currentIndex].style.height = 0; // 设置大图片的初始高度为 0
     startChange(largePics[currentIndex], 400, 'height'); // 通过运动显示图片
 
     // 设置小图片的透明度
-    for (var i = 0; i < smallPics.length; i++) {
-      startChange(smallPics[i], 60, 'opacity');
-    }
-
+    // for (var i = 0; i < smallPics.length; i++) {
+    //   startChange(smallPics[i], 60, 'opacity');
+    // }
+    startChange(smallPics[currentOpacityIndex], 60, 'opacity');
     startChange(smallPics[currentIndex], 100, 'opacity');
 
     // 滚动小图片
@@ -55,13 +56,15 @@ window.onload = function () {
     }
 
     // 设置圆点颜色
-    for (var i = 0; i < dots.length; i++) {
-      // startChange(dots[i], 60, 'opacity');
-      dots[i].style.backgroundColor = '#000';
-    }
-
+    // for (var i = 0; i < dots.length; i++) {
+    //   // startChange(dots[i], 60, 'opacity');
+    //   dots[i].style.backgroundColor = '#000';
+    // }
+    dots[currentOpacityIndex].style.backgroundColor = '#000';
     dots[currentIndex].style.backgroundColor = '#fff';
     // startChange(dots[currentIndex], 100, 'opacity');
+    currentOpacityIndex = currentIndex;
+
   }
 
   prevButton.onclick = function () { // 左箭头点击事件
@@ -71,7 +74,7 @@ window.onload = function () {
       currentIndex = largePics.length - 1;
     }
 
-    thumbnailMove(); // 小图片运动
+    thumbnailMove(); // 图片运动
   }
 
   nextButton.onclick = function () { // 右箭头点击事件

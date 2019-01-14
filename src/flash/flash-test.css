@@ -32,7 +32,7 @@ img {
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 0;
+  /* z-index: 0; */
   cursor: pointer;
   overflow: hidden;
 }
@@ -127,12 +127,12 @@ img {
   height: 130px;
   margin: 10px 0 10px 15px;
   float: left;
-  opacity: .6;
+  opacity: 0.6;
   filter: opacity(60);
   cursor: pointer;
 }
 
-.small-pic:first-child {
+.small-pic li:first-of-type {
   opacity: 1;
   filter: opacity(100);
 }
@@ -155,7 +155,6 @@ img {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  /* background: url(./images/span.png) repeat-x center center; */
   display: inline-block;
   opacity: 0.6;
   filter: opacity(60);
