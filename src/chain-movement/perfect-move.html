@@ -5,24 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>简单链式运动</title>
+  <title>完美运动示例</title>
   <style>
-    #chain-move {
+    #perfect-move {
       width: 200px;
       height: 200px;
       background-color: rebeccapurple;
-      opacity: 0.3;
       filter: opacity(30);
-      left: 0;
+      opacity: 0.3;
       position: absolute;
+      top: 50px;
+      left: 100px;
     }
   </style>
-  <script src="../move-frame/move-frame.js"></script>
-  <script src="chain-simple-move.js"></script>
+  <script src="../move-frame/move-pframe.js"></script>
+  <script src="perfect-move.js"></script>
 </head>
 
 <body>
-  <div id="chain-move"></div>
+  <button id="move-btn">开始运动</button>
+  <div id="perfect-move"></div>
 </body>
 
 </html>
