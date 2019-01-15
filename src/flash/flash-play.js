@@ -3,6 +3,7 @@ window.onload = function () {
   var rightBackdrop = document.getElementsByClassName('right-backdrop')[0];
   var prevButton = document.getElementsByClassName('prev-btn')[0]; // 左箭头
   var nextButton = document.getElementsByClassName('next-btn')[0]; // 右箭头
+  var container = document.getElementsByClassName('container')[0]; // 整个区域
   var largePicWrapper = document.getElementsByClassName('large-pic')[0]; // 大图片区域
   var largePics = largePicWrapper.getElementsByTagName('li'); // 大图片
   var smallPicWrapper = document.getElementsByClassName('small-pic')[0]; // 小图片 ul
@@ -17,19 +18,19 @@ window.onload = function () {
 
   prevButton.onmouseover = leftBackdrop.onmouseover = function () {
     startChange(prevButton, 60, 'opacity');
-  }
+  };
 
   prevButton.onmouseout = leftBackdrop.onmouseout = function () {
     startChange(prevButton, 0, 'opacity');
-  }
+  };
 
   nextButton.onmouseover = rightBackdrop.onmouseover = function () {
     startChange(nextButton, 60, 'opacity');
-  }
+  };
 
   nextButton.onmouseout = rightBackdrop.onmouseout = function () {
     startChange(nextButton, 0, 'opacity');
-  }
+  };
 
   /**
    * 图片变化
@@ -75,7 +76,7 @@ window.onload = function () {
     }
 
     thumbnailMove(); // 图片运动
-  }
+  };
 
   nextButton.onclick = function () { // 右箭头点击事件
     currentIndex++; // 图片索引为下一张图片
@@ -86,7 +87,7 @@ window.onload = function () {
     }
 
     thumbnailMove(); // 小图片运动
-  }
+  };
 
 
   // 设置小图片事件
@@ -96,13 +97,13 @@ window.onload = function () {
 
     smallPics[i].onmouseover = function () {
       startChange(this, 100, 'opacity');
-    }
+    };
 
     smallPics[i].onmouseout = function () {
       if (this.index !== currentIndex) {
         startChange(this, 60, 'opacity');
       }
-    }
+    };
 
     smallPics[i].onclick = function () {
       if (currentIndex === this.index) {
@@ -110,7 +111,7 @@ window.onload = function () {
       }
       currentIndex = this.index;
       thumbnailMove();
-    }
+    };
   }
 
 
@@ -122,5 +123,15 @@ window.onload = function () {
     }
     currentIndex = currentDot.index;
     thumbnailMove();
-  }
+  };
+
+  var timer = setInterval(nextButton.onclick, 2000);
+
+  container.onmouseover = function() {
+    clearInterval(timer);
+  };
+
+  container.onmouseout = function() {
+    timer = setInterval(nextButton.onclick, 2000);
+  };
 }
